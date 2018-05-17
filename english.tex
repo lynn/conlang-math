@@ -1,0 +1,66 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,parskip,xcolor}
+
+% The theorem and definition environments.
+\theoremstyle{plain}\newtheorem*{mythm}{Theorem}
+\theoremstyle{definition}\newtheorem*{mydef}{Definition}
+
+% Some code to fix theorem spacing.
+{\makeatletter\@for\theoremstyle:=definition,remark,plain\do{\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{\addtolength\thm@preskip\parskip}}}
+
+% A command for red text.
+\newcommand{\red}[1]{{\color{red}#1}}
+
+% Turn off page numbers.
+\pagenumbering{gobble}
+
+\begin{document}
+\section{Polynomials}
+\subsection{What are polynomials?}
+\begin{mydef}
+	A \textbf{polynomial} is a mathematical expression that is a finite sum of \textbf{terms}. Each term is the product of a non-zero number, and (optionally) some symbols or letters. The symbols are called \textbf{variables}.
+\end{mydef}
+
+For example, ``$3x^2 + (-2x) + 7$'' is a polynomial. It has three terms, and one variable, $x$. (The first term is the product of $3$, $x$, and $x$ again.)
+
+We can ``\textbf{evaluate}'' a polynomial by picking some numeric value for each symbol, and substituting that value for every occurrence of the symbol.
+
+For example, evaluating $3x^2 + (-2x) + 7$ under the choice $x=4$, we get \[
+	3 \cdot \red{4}^2 + (-2 \cdot \red{4}) + 7 = 48 - 8 + 7 = 47.
+\]
+From here on, we will only talk about polynomials in one variable, $x$.
+
+\subsection{The quadratic formula}
+\begin{mydef}
+	A \textbf{root} of such a polynomial is a choice of $x$ so that the result of evaluation is $0$. (For example, 3 is a root of $x^2 - 9$, since $3^2 - 9 = 0$.)
+\end{mydef} 
+
+\begin{mydef}
+	A \textbf{quadratic} polynomial is one of the form $ax^2 + bx + c$ for some numbers $a, b, c$ where $a \neq 0$.
+\end{mydef}
+
+\begin{mythm}
+	The roots of $a x^2 + b x + c$ are given by the formula: \[
+		\boxed{x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.}
+	\]
+\end{mythm}
+
+\begin{proof}
+	In the equation $a x^2 + b x + c = 0$, divide both sides by $a$: \[
+		x^2 + \frac{b}{a} x + \frac{c}{a} = 0.
+	\]
+	Now add $\left( \frac{b}{2a} \right)^2 - \frac{c}{a}$ to both sides: \[
+		x^2 + \frac{b}{a} x + \left( \frac{b}{2a} \right)^2 = \left( \frac{b}{2a} \right)^2 - \frac{c}{a}.
+	\]
+	Recognize the left side as $(x + \frac{b}{2a})^2$ and simplify the right side. \[
+		\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}
+	\]
+	We know that $p^2 = q$ precisely when $p = \pm \sqrt{q}$. So we conclude: \[
+		x + \frac{b}{2a} = \sqrt{\frac{b^2 - 4ac}{4a^2}},
+	\]
+	which we can write as \[
+		\boxed{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.} \qedhere
+	\]
+\end{proof}
+\end{document}
