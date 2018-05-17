@@ -1,0 +1,66 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amsthm,parskip,xcolor}
+\usepackage[esperanto]{babel}
+
+% Teorema kaj difina ĉirkaŭaĵo.
+\theoremstyle{plain}\newtheorem*{mythm}{Teoremo}
+\theoremstyle{definition}\newtheorem*{mydef}{Difino}
+
+% Korekti teoreman interspacon.
+{\makeatletter\@for\theoremstyle:=definition,remark,plain\do{\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{\addtolength\thm@preskip\parskip}}}
+
+% Ruĝa teksto.
+\newcommand{\red}[1]{{\color{red}#1}}
+
+% Elŝalti paĝnombrojn.
+\pagenumbering{gobble}
+
+\begin{document}
+\section{Polinomoj}
+\subsection{Kio estas polinomoj?}
+\begin{mydef}
+	\textbf{Polinomo} estas matematika esprimo, kiu estas finia sumo de \textbf{termoj}. ^Ciu termo estas produto de ne-nula nombro, kaj (opcie) iuj simboloj a^u literoj. La simboloj nomi^gas \textbf{variabloj}.
+\end{mydef}
+
+Ekzemple, ``$3x^2 + (-2x) + 7$'' estas polinomo. ^Gi konsistas el tri termoj, kaj unu variablo, $x$. (La unua termo estas la produto de $3$, $x$, kaj denove $x$.)
+
+Ni povas ``\textbf{elkalkuli}'' polinomon: elekti nombran valoron por ^ciu variablo, kaj anstata^uigi per ^gi ^ciun apera^jon de tiu variablo.
+
+Ekzemple, elkalkulante $3x^2 + (-2x) + 7$ je la elekto $x=4$, oni akiras \[
+	3 \cdot \red{4}^2 + (-2 \cdot \red{4}) + 7 = 48 - 8 + 7 = 47.
+\]
+Ekde nun oni nur diskutas polinomojn en unu variablo, $x$.
+
+\subsection{La kvadrata formulo}
+\begin{mydef}
+	\textbf{Radiko} de tia polinomo estas elekto por $x$, je kiu la rezulto de la elkalkulado estas $0$. (Ekzemple, 3 estas radiko de $x^2 - 9$, ^car $3^2 - 9 = 0$.)
+\end{mydef}
+
+\begin{mydef}
+	\textbf Polinomo estas \textbf{kvadrata} se ^gi egalas $ax^2 + bx + c$ por iuj nombroj $a, b, c$ kun $a \neq 0$.
+\end{mydef}
+
+\begin{mythm}
+	La radikoj $a x^2 + b x + c$ estas akirataj per la formulo: \[
+		\boxed{x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.}
+	\]
+\end{mythm}
+
+\begin{proof}
+	En la ekvacio $a x^2 + b x + c = 0$, oni dividas amba^u flankon per $a$: \[
+		x^2 + \frac{b}{a} x + \frac{c}{a} = 0.
+	\]
+	Nur oni adicias $\left( \frac{b}{2a} \right)^2 - \frac{c}{a}$ al amba^u flanko: \[
+		x^2 + \frac{b}{a} x + \left( \frac{b}{2a} \right)^2 = \left( \frac{b}{2a} \right)^2 - \frac{c}{a}.
+	\]
+	Oni rekonas la livan flankon kiel $(x + \frac{b}{2a})^2$, kaj simpligas la dekstran. \[
+		\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}
+	\]
+	Oni scias ke $p^2 = q$ precize kiam $p = \pm \sqrt{q}$. Do konklude: \[
+		x + \frac{b}{2a} = \sqrt{\frac{b^2 - 4ac}{4a^2}},
+	\]
+	kiun oni povas skribi kiel \[
+		\boxed{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.} \qedhere
+	\]
+\end{proof}
+\end{document}
