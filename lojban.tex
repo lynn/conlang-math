@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath,amsthm,parskip,xcolor}
+\usepackage{csquotes}
+\usepackage{lmodern}
+
+% Korekti teoreman interspacon.
+{\makeatletter\@for\theoremstyle:=definition,remark,plain\do{\expandafter\g@addto@macro\csname th@\theoremstyle\endcsname{\addtolength\thm@preskip\parskip}}}
+
+% Ruĝa teksto.
+\newcommand{\red}[1]{{\color{red}#1}}
+
+% Elŝalti paĝnombrojn.
+\pagenumbering{gobble}
+
+\usepackage[compact,explicit]{titlesec}
+\titleformat{\section}[runin]{\Large\bfseries}{}{0pt}{ni'oni'oni'o \thesection{}mo'o #1}
+\titleformat{\subsection}[runin]{\large\bfseries}{}{0pt}{ni'oni'o \arabic{subsection}mai #1}
+
+% Teorema kaj difina ĉirkaŭaĵo.
+\theoremstyle{plain}\newtheorem*{mythm}{ni'o ju'a}
+\theoremstyle{definition}\newtheorem*{mydef}{ni'o ca'e}
+
+\begin{document}
+\section{tefsujme'o}
+\subsection{lo tefsujme'o ku mo?}
+\begin{mydef}
+	\textbf{tefsujme'o (cei broda)} fa ro mekso poi simsumji su'ono za'e ``\textbf{sajysle}'' noi ro ke'a ca'e pilji lo nonfrica lo su'ono sinxa, noi ca'e \textbf{snicne}
+\end{mydef}
+
+ni'o mu'a la'e lu ``$3x^2 + (-2x) + 7$'' li'u broda .i ri se pagbu ci sajysle je pa snicne no'u li $x$ (to sa'unai lo pamoi sajysle ku pilji li $3$ li $x$ li $x$ ke'u toi)
+
+ni'o ca'e lo ``\textbf{fancu'alge}'' be lo broda goi py bei lo namcu goi xy cu te pruce xy lo nu xy pa'a basti lo sinxa pe py lo nu kanji
+
+ni'o mu'a fancu'alge li $3x^2 + (-2x) + 7$ li $x=4$ fa li \[
+3 \cdot \red{4}^2 + (-2 \cdot \red{4}) + 7 = 48 - 8 + 7 = 47.
+\]
+ni'o baze'e casnu lo broda pe lo pa po'o snicne no'u li $x$
+
+\subsection{la kurtenfa mekso zo'u}
+\begin{mydef}
+	za'e \textbf{nonco'e} lo broda goi py fa ro namcu poi te fancu'alge py li 0 .i mu'a li 3 nonco'e li $x^2-9$ ni'i lodu'u li $3^2 - 9$ mintu li $0$
+\end{mydef}
+
+\begin{mydef}
+	za'e \textbf{kurtefco'e} fa ro broda poi su'o nonfrica goi li $a$ su'o namcu goi li $b$ su'o namcu goi li $c$ zo'u: ke'a mintu li $ax^2 + bx + c$.
+\end{mydef}
+
+\begin{mythm}
+	lo nonco'e goi li $x$ be li $a x^2 + b x + c$ cu jai do'e mekso fai li \[
+	\boxed{x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.}
+	\]
+\end{mythm}
+
+\begin{proof}
+	In the equation $a x^2 + b x + c = 0$, divide both sides by $a$: \[
+	x^2 + \frac{b}{a} x + \frac{c}{a} = 0.
+	\]
+	Now add $\left( \frac{b}{2a} \right)^2 - \frac{c}{a}$ to both sides: \[
+	x^2 + \frac{b}{a} x + \left( \frac{b}{2a} \right)^2 = \left( \frac{b}{2a} \right)^2 - \frac{c}{a}.
+	\]
+	Recognize the left side as $(x + \frac{b}{2a})^2$ and simplify the right side. \[
+	\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}
+	\]
+	We know that $p^2 = q$ precisely when $p = \pm \sqrt{q}$. So we conclude: \[
+	x + \frac{b}{2a} = \sqrt{\frac{b^2 - 4ac}{4a^2}},
+	\]
+	which we can write as \[
+	\boxed{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.} \qedhere
+	\]
+\end{proof}
+\end{document}
